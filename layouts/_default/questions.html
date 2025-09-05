@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+
+{{ partial "head.html" . }}
+
+<body>
+    {{ partial "header.html" . }}
+
+    <main class="content-wrapper">
+        <article class="content-container">
+            <h1>{{ .Title }}</h1>
+            <div class="content">
+                {{ .Content }}
+            </div>
+            
+            {{ $questions := .Site.Data.questions }}
+            
+            <div class="questions-list">
+                {{ if $questions }}
+                    {{ if $questions.questions }}
+                        {{ range $questions.questions }}
+                        <div class="recommendation-card">
+                            <div class="recommendation-details">
+                                <h3>{{ .question }}</h3>
+                                {{ if .description }}
+                                    <p>{{ .description }}</p>
+                                {{ end }}
+                                {{ if .inspiration }}
+                                    <p style="font-size: 0.9em; font-style: italic;"><strong>Inspiration:</strong> {{ .inspiration }}</p>
+                                {{ end }}
+                                {{ if .category }}
+                                    <div class="recommendation-tags">
+                                        <span class="recommendation-tag">{{ .category }}</span>
+                                    </div>
+                                {{ end }}
+                            </div>
+                        </div>
+                        {{ end }}
+                    {{ else }}
+                        <p>No questions found in questions.questions</p>
+                    {{ end }}
+                {{ else }}
+                    <p>No questions data found</p>
+                {{ end }}
+            </div>
+        </article>
+        {{ partial "footer.html" . }}
+    </main>
+</body>
+
+</html>

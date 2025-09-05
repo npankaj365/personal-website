@@ -1,0 +1,24 @@
+podcasts:
+  - title: "Dwarkesh Podcast"
+    host: "Dwarkesh Patel"
+    description: "Dwarkesh does extensive research, brings excellent guests and even better conversations with them."
+    link: "https://www.youtube.com/playlist?list=PLd7-bHaQwnthaNDpZ32TtYONGVk95-fhF"
+    tags: ["Technology", "Interview"]
+
+  - title: "Art of Accomplishment"
+    host: "Joe Hudson and Brett Kistler"
+    description: "Excellent resource to understand and work on emotional regulation, interpersonal relationships and the like."
+    link: "https://www.artofaccomplishment.com/podcast"
+    tags: ["Personal Growth"]
+
+  - title: "Everything is Everything"
+    host: "Amit Verma and Ajay Shah"
+    description: "Wide-ranging conversations between two widely read journalist and economist."
+    link: "https://www.youtube.com/playlist?list=PLIG8a9wNRHVu-Aw2VgUJacXlpsJMbF5Y_"
+    tags: ["Curiosity", "Economics"]
+
+  - title: "Deconstructing Yourself"
+    host: "Michael Taft"
+    description: "Meditation and mindfulness teachings focused on deconstructing the sense of self through pragmatic Buddhist approaches."
+    link: "https://deconstructingyourself.com/deconstructing-yourself-podcast"
+    tags: ["Mindfulness", "Buddhism", "Meditation"]

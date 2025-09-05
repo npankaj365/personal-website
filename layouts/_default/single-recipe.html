@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+
+{{ partial "head.html" . }}
+
+<body>
+    {{ partial "header.html" . }}
+
+    <main class="content-wrapper">
+        <article class="content-container">
+            {{ $recipes := .Site.Data.recipes }}
+            {{ $recipeName := .Params.recipe_name }}
+            {{ range $recipes.recipes }}
+                {{ if eq .name $recipeName }}
+                    <h1>{{ .name }}</h1>
+                    <div class="recipe-meta" style="display: flex; gap: 1rem; margin-bottom: 1rem; font-size: 0.9em; color: #666;">
+                        <span><strong>Servings:</strong> {{ .servings }}</span>
+                        <span><strong>Prep:</strong> {{ .prep_time }}</span>
+                        <span><strong>Cook:</strong> {{ .cook_time }}</span>
+                        <span><strong>Difficulty:</strong> {{ .difficulty }}</span>
+                    </div>
+                    <p style="margin-bottom: 1.5rem;">{{ .description }}</p>
+                    
+                    {{ if .image }}
+                    <div class="recipe-image" style="margin-bottom: 1.5rem;">
+                        <img src="/images/recipes/{{ .image }}" alt="{{ .name }}{{ if .image_credit }} - Photo by {{ .image_credit }}{{ end }}" style="width: 100%; max-width: 600px; height: auto; border-radius: 8px;">
+                        {{ if .image_credit }}
+                        <div class="image-credit" style="font-size: 0.8em; color: #666; margin-top: 0.5rem; text-align: center;">Photo by {{ .image_credit }}</div>
+                        {{ end }}
+                    </div>
+                    {{ else }}
+                    <div class="recipe-image" style="margin-bottom: 1.5rem;">
+                        <img src="/images/recipes/{{ .name | urlize }}.jpg" alt="{{ .name }}{{ if .image_credit }} - Photo by {{ .image_credit }}{{ end }}" style="width: 100%; max-width: 600px; height: auto; border-radius: 8px;">
+                        {{ if .image_credit }}
+                        <div class="image-credit" style="font-size: 0.8em; color: #666; margin-top: 0.5rem; text-align: center;">Photo by {{ .image_credit }}</div>
+                        {{ end }}
+                    </div>
+                    {{ end }}
+                    
+                    <div class="recipe-content" style="display: grid; grid-template-columns: 1fr 2fr; gap: 2rem;">
+                        <div class="ingredients">
+                            <h3>Ingredients</h3>
+                            <ul>
+                                {{ range .ingredients }}
+                                <li>{{ . }}</li>
+                                {{ end }}
+                            </ul>
+                        </div>
+                        
+                        <div class="preparation-instructions">
+                            {{ if .preparation }}
+                            <div class="preparation">
+                                <h3>Preparation</h3>
+                                <ol>
+                                    {{ range .preparation }}
+                                    <li style="margin-bottom: 0.5rem;">{{ . }}</li>
+                                    {{ end }}
+                                </ol>
+                            </div>
+                            {{ end }}
+                            
+                            <div class="instructions">
+                                <h3>Instructions</h3>
+                                <ol>
+                                    {{ range .instructions }}
+                                    <li style="margin-bottom: 0.5rem;">{{ . }}</li>
+                                    {{ end }}
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    {{ if .tags }}
+                    <div class="tags" style="margin-top: 1rem;">
+                        <strong>Tags:</strong>
+                        {{ range .tags }}
+                        <span style="background: #f0f0f0; padding: 0.2rem 0.5rem; margin-right: 0.5rem; border-radius: 3px; font-size: 0.8em;">{{ . }}</span>
+                        {{ end }}
+                    </div>
+                    {{ end }}
+                {{ end }}
+            {{ end }}
+        </article>
+        {{ partial "footer.html" . }}
+    </main>
+</body>
+
+</html>

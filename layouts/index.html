@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+
+{{ partial "head.html" . }}
+
+<body>
+    {{ partial "header.html" . }}
+
+    <main class="content-wrapper">
+        <article class="content-container">
+            {{ $aboutContent := .Site.Data.about }}
+            
+            <section>
+                <h1 class="smaller">{{ $aboutContent.Title | markdownify }}</h1>
+                <p>{{ $aboutContent.Content | markdownify }}</p>
+                <p>{{ $aboutContent.SubContent | markdownify }}</p>
+                {{ if $aboutContent.Scholar }}
+                <p><strong>Looking for the academic/researcher Pankaj specifically? 
+                    <br>Visit:</strong> <a href="{{ $aboutContent.Scholar }}" target="_blank">Scholar Profile</a>&nbsp;|&nbsp;
+                    <a href="https://scholar.google.com/citations?user=Zv2w10AAAAAJ&hl=en&oi=ao" target="_blank">Google Scholar</a>&nbsp;|&nbsp;
+                    <a href="https://linkedin.com/in/npankaj365" target="_blank">LinkedIn</a>
+                </p>
+                {{ end }}
+            </section>
+
+            <section>
+                <h2>Digital Garden (Posts)</h2>
+                <div class="growth-stages-info">
+                    <p style="margin: 0 0 0.5rem 0;"><strong>Digital Garden Growth Stages:</strong></p>
+                    <p style="margin: 0.25rem 0;">🌱 <strong>Seedling</strong> - Early ideas, rough thoughts, work in progress</p>
+                    <p style="margin: 0.25rem 0;">🌿 <strong>Budding</strong> - Developing concepts, more structure, still evolving</p>
+                    <p style="margin: 0.25rem 0;">🌳 <strong>Evergreen</strong> - Established thoughts, well-developed, regularly tended</p>
+                </div>
+                <ul>
+                    {{ range (where .Site.RegularPages "Section" "posts").ByLastmod.Reverse }}
+                    <li>
+                        <a href="{{ .Permalink }}">{{ .Title }}</a>
+                        {{ if .Params.stage }}
+                        <span class="growth-stage growth-stage-{{ .Params.stage }}" style="margin-left: 0.5rem; font-size: 0.8em;">
+                            {{ if eq .Params.stage "seedling" }}🌱{{ else if eq .Params.stage "budding" }}🌿{{ else if eq .Params.stage "evergreen" }}🌳{{ else }}{{ .Params.stage | title }}{{ end }}
+                        </span>
+                        {{ end }}
+                        <span style="color: #888; font-size: 0.5em; float: right;">{{ .Lastmod.Format "2006-01-02" }}</span>
+                    </li>
+                    {{ end }}
+                </ul>
+            </section>
+
+            <section>
+                <h2>Recommendations</h2>
+                {{ $recommendations := where .Site.RegularPages "Section" "recommendations" }}
+                <div class="recommendations-grid">
+                    {{ range $recommendations.ByLastmod.Reverse }}
+                    <div>
+                        <a href="{{ .Permalink }}">{{ .Title }}</a>
+                        <span class="item-count">
+                            {{ if eq .Title "Books" }}
+                                {{ len $.Site.Data.books.books }}
+                            {{ else if eq .Title "Movies" }}
+                                {{ len $.Site.Data.movies.movies }}
+                            {{ else if eq .Title "Articles" }}
+                                {{ len $.Site.Data.articles.articles }}
+                            {{ else if eq .Title "Podcasts" }}
+                                {{ len $.Site.Data.podcasts.podcasts }}
+                            {{ else if eq .Title "TV Series" }}
+                                {{ len (index $.Site.Data "tv-series").tv_series }}
+                            {{ else if eq .Title "Videos" }}
+                                {{ len $.Site.Data.videos.videos }}
+                            {{ else if eq .Title "Questions" }}
+                                {{ len $.Site.Data.questions.questions }}
+                            {{ else }}
+                                0
+                            {{ end }}
+                        </span>
+                    </div>
+                    {{ end }}
+                </div>
+            </section>
+
+            <!-- <section>
+                <h2>Recipes</h2>
+                <ul>
+                    {{ $recipes := .Site.Data.recipes }}
+                    {{ if $recipes }}
+                        {{ if $recipes.recipes }}
+                            {{ range $index, $recipe := $recipes.recipes }}
+                            <li>
+                                <a href="/recipes/{{ $recipe.name | urlize }}/">{{ $recipe.name }}</a>
+                                <span style="color: #888; font-size: 0.5em; float: right;">{{ $recipe.difficulty }}</span>
+                            </li>
+                            {{ end }}
+                        {{ end }}
+                    {{ end }}
+                </ul>
+            </section> -->
+
+            <section>
+                <h2>Meta</h2>
+                <ul class="meta-links">
+                    <li><a href="/now/">Now</a></li>
+                    <li><a href="/thanks/">Thank You</a></li>
+                    <li><a href="/contact/">Contact</a></li>
+                    <li><a href="/site/">About</a></li>
+                </ul>
+            </section>
+
+        </article>
+        {{ partial "footer.html" . }}
+    </main>
+</body>
+
+</html>

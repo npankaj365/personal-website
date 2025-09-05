@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+
+{{ partial "head.html" . }}
+
+<body>
+    {{ partial "header.html" . }}
+
+    <main class="content-wrapper">
+        <article class="content-container">
+            <h1>{{ .Title }}</h1>
+            <div class="content">
+                {{ .Content }}
+            </div>
+            
+            {{ $videos := .Site.Data.videos }}
+            
+            <div class="videos-list">
+                {{ if $videos }}
+                    {{ if $videos.videos }}
+                        {{ range $videos.videos }}
+                        <div class="recommendation-card">
+                            <div class="recommendation-details">
+                                <h3><a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .title }}</a></h3>
+                                {{ if .creator }}
+                                    <p><strong>Creator:</strong> {{ .creator }}</p>
+                                {{ end }}
+                                <p>{{ .description }}</p>
+                                {{ if .tags }}
+                                    <div class="recommendation-tags">
+                                        {{ range .tags }}
+                                            <span class="recommendation-tag">{{ . }}</span>
+                                        {{ end }}
+                                    </div>
+                                {{ end }}
+                            </div>
+                        </div>
+                        {{ end }}
+                    {{ else }}
+                        <p>No videos found in videos.videos</p>
+                    {{ end }}
+                {{ else }}
+                    <p>No videos data found</p>
+                {{ end }}
+            </div>
+        </article>
+        {{ partial "footer.html" . }}
+    </main>
+</body>
+
+</html>

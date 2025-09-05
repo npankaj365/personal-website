@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+
+{{ partial "head.html" . }}
+
+<body>
+    {{ partial "header.html" . }}
+
+    <main class="content-wrapper">
+        <article class="content-container">
+            <h1>{{ .Title }}</h1>
+            <div class="content">
+                {{ .Content }}
+            </div>
+            
+            {{ $books := .Site.Data.books }}
+            
+            <div class="books-list">
+                {{ if $books }}
+                    {{ if $books.books }}
+                        {{ range $books.books }}
+                        <div class="recommendation-card {{ if .cover }}recommendation-card-with-cover{{ end }}">
+                            {{ if .cover }}
+                            <div class="recommendation-cover">
+                                <img src="{{ .cover }}" alt="{{ .title }} cover">
+                            </div>
+                            {{ end }}
+                            <div class="recommendation-details">
+                                <h3>
+                                    {{ if .link }}
+                                        <a href="{{ .link }}" target="_blank" rel="noopener noreferrer">{{ .title }}</a>
+                                    {{ else }}
+                                        {{ .title }}
+                                    {{ end }}
+                                </h3>
+                                {{ if .author }}
+                                    <p><strong>Author:</strong> {{ .author }}</p>
+                                {{ end }}
+                                <p>{{ .description }}</p>
+                                {{ if .tags }}
+                                    <div class="recommendation-tags">
+                                        {{ range .tags }}
+                                            <span class="recommendation-tag">{{ . }}</span>
+                                        {{ end }}
+                                    </div>
+                                {{ end }}
+                            </div>
+                        </div>
+                        {{ end }}
+                    {{ else }}
+                        <p>No books found in books.books</p>
+                    {{ end }}
+                {{ else }}
+                    <p>No books data found</p>
+                {{ end }}
+            </div>
+        </article>
+        {{ partial "footer.html" . }}
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+
+{{ partial "head.html" . }}
+
+<body>
+    {{ partial "header.html" . }}
+
+    <main class="content-wrapper">
+        <article class="content-container">
+            <h1>{{ .Title }}</h1>
+            <div class="content">
+                {{ .Content }}
+            </div>
+            
+            {{ $tvSeries := index .Site.Data "tv-series" }}
+            
+            <div class="tv-series-list">
+                {{ if $tvSeries }}
+                    {{ if $tvSeries.tv_series }}
+                        {{ range $tvSeries.tv_series }}
+                        <div class="recommendation-card {{ if .cover }}recommendation-card-with-cover{{ end }}">
+                            {{ if .cover }}
+                            <div class="recommendation-cover">
+                                <img src="{{ .cover }}" alt="{{ .title }} cover">
+                            </div>
+                            {{ end }}
+                            <div class="recommendation-details">
+                                <h3>
+                                    {{ if .link }}
+                                        <a href="{{ .link }}" target="_blank" rel="noopener noreferrer">{{ .title }}</a> ({{ .year }})
+                                    {{ else }}
+                                        {{ .title }} ({{ .year }})
+                                    {{ end }}
+                                </h3>
+                                <p>{{ .description }}</p>
+                                {{ if .rating }}
+                                    <p><strong>Rating:</strong> {{ .rating }}</p>
+                                {{ end }}
+                                {{ if .tags }}
+                                    <div class="recommendation-tags">
+                                        {{ range .tags }}
+                                            <span class="recommendation-tag">{{ . }}</span>
+                                        {{ end }}
+                                    </div>
+                                {{ end }}
+                            </div>
+                        </div>
+                        {{ end }}
+                    {{ else }}
+                        <p>No TV series found in tv_series.tv_series</p>
+                    {{ end }}
+                {{ else }}
+                    <p>No TV series data found</p>
+                {{ end }}
+            </div>
+        </article>
+        {{ partial "footer.html" . }}
+    </main>
+</body>
+
+</html>

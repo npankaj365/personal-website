@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+
+{{ partial "head.html" . }}
+
+<body>
+
+    {{ partial "header.html" . }}
+
+    <main class="content-wrapper">
+        <article class="content-container">
+            <h1>{{ .Title }}</h1>
+            {{ if not (eq .Title "Contact") }}
+            <h4>{{ .Params.description }}</h4>
+            <p class="author-date">
+                <time datetime="{{ .Date }}">{{ .Date.Format "January 2, 2006" }}</time>
+                {{ if .Params.stage }}
+                <span class="growth-stage growth-stage-{{ .Params.stage }}" title="{{ if eq .Params.stage "seedling" }}🌱 Seedling: Early ideas, rough thoughts, work in progress{{ else if eq .Params.stage "budding" }}🌿 Budding: Developing concepts, more structure, still evolving{{ else if eq .Params.stage "evergreen" }}🌳 Evergreen: Established thoughts, well-developed, regularly tended{{ else }}{{ .Params.stage | title }}{{ end }}">
+                    {{ if eq .Params.stage "seedling" }}🌱 Seedling{{ else if eq .Params.stage "budding" }}🌿 Budding{{ else if eq .Params.stage "evergreen" }}🌳 Evergreen{{ else }}{{ .Params.stage | title }}{{ end }}
+                </span>
+                {{ end }}
+            </p>
+            {{ end }}
+
+            {{- if not (.Param "disableAnchoredHeadings") }}
+            {{- partial "anchored_headings.html" .Content -}}
+            {{- else }}{{ .Content }}{{ end }}
+        </article>
+    </main>
+
+    {{ partial "footer.html" . }}
+</body>
+
+</html>

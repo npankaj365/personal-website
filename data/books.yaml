@@ -1,0 +1,27 @@
+books:
+  - title: "Sophie's World"
+    author: "Jostein Gaarder"
+    description: "A novel about the history of philosophy, following Sophie as she learns about Western philosophical thought."
+    link: "https://a.co/d/8bcRoJo"
+    cover: "/images/books/sophies-world-cover.jpg"
+    tags: ["Philosophy", "Fiction"]
+
+  - title: "Seeing that Frees"
+    author: "Rob Burbea"
+    description: "A seminal book on emptiness and dependent arising."
+    link: "https://hermesamara.org/seeing-that-frees"
+    cover: "/images/books/seeing-that-frees-cover.jpg"
+    tags: ["Mindfulness", "Buddhism"]
+
+  - title: "Mastery"
+    author: "Robert Greene"
+    description: "An exploration of the path to mastery through historical examples and psychological insights."
+    cover: "/images/books/mastery-robert-greene-cover.webp"
+    tags: ["Self-Improvement", "Biography"]
+
+  - title: "Man's Search for Meaning"
+    author: "Viktor E. Frankl"
+    description: "A Holocaust survivor's profound meditation on finding purpose in suffering and the human search for meaning."
+    cover: "/images/books/mans-search-for-meaning-cover.jpg"
+    tags: ["Psychology", "Memoir", "Philosophy"]
+  

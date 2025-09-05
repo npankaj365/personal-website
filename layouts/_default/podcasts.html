@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+
+{{ partial "head.html" . }}
+
+<body>
+    {{ partial "header.html" . }}
+
+    <main class="content-wrapper">
+        <article class="content-container">
+            <h1>{{ .Title }}</h1>
+            <div class="content">
+                {{ .Content }}
+            </div>
+            
+            {{ $podcasts := .Site.Data.podcasts }}
+            
+            <div class="podcasts-list">
+                {{ if $podcasts }}
+                    {{ if $podcasts.podcasts }}
+                        {{ range $podcasts.podcasts }}
+                        <div class="recommendation-card">
+                            <div class="recommendation-details">
+                                <h3>
+                                    {{ if .link }}
+                                        <a href="{{ .link }}" target="_blank" rel="noopener noreferrer">{{ .title }}</a>
+                                    {{ else }}
+                                        {{ .title }}
+                                    {{ end }}
+                                </h3>
+                                {{ if .host }}
+                                    <p><strong>Host:</strong> {{ .host }}</p>
+                                {{ end }}
+                                <p>{{ .description }}</p>
+                                {{ if .tags }}
+                                    <div class="recommendation-tags">
+                                        {{ range .tags }}
+                                            <span class="recommendation-tag">{{ . }}</span>
+                                        {{ end }}
+                                    </div>
+                                {{ end }}
+                            </div>
+                        </div>
+                        {{ end }}
+                    {{ else }}
+                        <p>No podcasts found in podcasts.podcasts</p>
+                    {{ end }}
+                {{ else }}
+                    <p>No podcasts data found</p>
+                {{ end }}
+            </div>
+        </article>
+        {{ partial "footer.html" . }}
+    </main>
+</body>
+
+</html>

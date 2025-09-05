@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+
+{{ partial "head.html" . }}
+
+<body>
+    {{ partial "header.html" . }}
+
+    <main class="content-wrapper">
+        <article class="content-container">
+            <h1>{{ .Title }}</h1>
+            <div class="content">
+                {{ .Content }}
+            </div>
+            
+            {{ $recipes := .Site.Data.recipes }}
+            
+            <div class="recipes-list">
+                {{ if $recipes }}
+                    {{ if $recipes.recipes }}
+                        <ul>
+                            {{ range $recipes.recipes }}
+                            <li style="margin-bottom: 0.5rem;">
+                                <span>{{ .name }}</span>
+                                <span style="color: #666; font-size: 0.9em;"> - {{ .difficulty }} | {{ .cook_time }}</span>
+                            </li>
+                            {{ end }}
+                        </ul>
+                    {{ else }}
+                        <p>No recipes found in recipes.recipes</p>
+                    {{ end }}
+                {{ else }}
+                    <p>No recipes data found</p>
+                {{ end }}
+            </div>
+        </article>
+        {{ partial "footer.html" . }}
+    </main>
+</body>
+
+</html>

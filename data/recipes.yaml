@@ -1,0 +1,31 @@
+recipes:
+  - name: "Eromba"
+    servings: 2
+    prep_time: "5 minutes"
+    cook_time: "10 minutes"
+    difficulty: "Easy"
+    description: "A simple Manipuri side dish similar to mashed potatoes. Originally this dish uses fermented fish, however, this recipe is adapted to be completely vegan."
+    ingredients:
+      - "Starchy Potatoes (Russet / Yukon Gold)"
+      - "Green beans (String/Snap/French) "
+      - "Spicy peppers (Jalapeno 🌶️ / Habanero 🌶️🌶️)"
+      - "Salt to taste (1-2 teaspoon)"
+      - "Onion"
+      - "Cilantro (optional)"
+    preparation:
+      - "Wash the potatoes before cooking them."
+      - "Cut the beans into 1-inch pieces."
+      - "Chop the onions to thin rectangular slices."
+      - "Clean and chop a few cilantro leaves."
+    instructions:
+      - "Pressure cook or steam potatoes, green beans and the peppers you would like to use per your tolerance. 
+        (Use a pressure cooker or any method that makes the potatoes mashable)"
+      - "Crush the steamed peppers with salt using a mortar and pestle to make it a paste."
+      - "Mash the potatoes in a bowl separately first making it smooth but sticky."
+      - "Put the steamed green beans into the bowl with mashed potatoes, and mash them together."
+      - "Add a little bit of water to the pepper paste to make it fluid before mixing it into the main bowl with mashed stuff. Mix them well to evenly spread the ingredients."
+      - "Sprinkle finely chopped onions and cilantro on top of the mashed mixture."
+      - "Erumba is ready to be enjoyed with rice or your choice of carbs."
+    tags: ["Quick", "Simple", "Spicy", "Vegan"]
+    image_credit: "Erumba - By Punshiba18 - Own work, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=32018232"
+  

@@ -1,0 +1,23 @@
+tv_series:
+  - title: "Avatar: The Last Airbender"
+    year: "2005-2008"
+    description: "Excellent production; young people find their way to discover themselves as they find themselves in a war-torn world"
+    rating: "10/10"
+    link: "https://www.imdb.com/title/tt0417299/"
+    tags: ["Adventure", "Coming-of-age", "Animation"]
+    cover: "/images/tv-series/avatar-the-last-airbender-cover.jpg"
+  - title: "Ted Lasso"
+    year: "2020-"
+    description: "Warm drama set on a coach's journey to manage a football team"
+    rating: "9/10"
+    link: "https://www.imdb.com/title/tt10986410"
+    tags: ["Drama", "Comedy"]
+    cover: "/images/tv-series/ted-lasso-cover.jpg"
+
+  - title: "Shrinking"
+    year: "2023-"
+    description: "Show based on the lives of therapists figuring their life as they work on helping others"
+    rating: "9/10"
+    link: "https://www.imdb.com/title/tt15677150"
+    tags: ["Drama", "Comedy"]
+    cover: "/images/tv-series/shrinking-cover.jpg"

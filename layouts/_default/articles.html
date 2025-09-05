@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+
+{{ partial "head.html" . }}
+
+<body>
+    {{ partial "header.html" . }}
+
+    <main class="content-wrapper">
+        <article class="content-container">
+            <h1>{{ .Title }}</h1>
+            <div class="content">
+                {{ .Content }}
+            </div>
+            
+            {{ $articles := .Site.Data.articles }}
+            
+            <div class="articles-list">
+                {{ if $articles }}
+                    {{ if $articles.articles }}
+                        {{ range $articles.articles }}
+                        <div class="recommendation-card">
+                            <div class="recommendation-details">
+                                <h3><a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .title }}</a></h3>
+                                {{ if .author }}
+                                    <p><strong>Author:</strong> {{ .author }}</p>
+                                {{ end }}
+                                <p>{{ .description }}</p>
+                                {{ if .tags }}
+                                    <div class="recommendation-tags">
+                                        {{ range .tags }}
+                                            <span class="recommendation-tag">{{ . }}</span>
+                                        {{ end }}
+                                    </div>
+                                {{ end }}
+                            </div>
+                        </div>
+                        {{ end }}
+                    {{ else }}
+                        <p>No articles found in articles.articles</p>
+                    {{ end }}
+                {{ else }}
+                    <p>No articles data found</p>
+                {{ end }}
+            </div>
+        </article>
+        {{ partial "footer.html" . }}
+    </main>
+</body>
+
+</html>

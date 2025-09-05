@@ -1,0 +1,24 @@
+movies:
+  - title: "Everything Everywhere All At Once"
+    year: "2022"
+    description: "A mind-bending sci-fi adventure epic with layers and layers to unpeel"
+    rating: "10/10"
+    link: "https://www.imdb.com/title/tt6710474/"
+    tags: ["Dark Comedy", "Adventure", "Drama"]
+    cover: "/images/movies/everything-everywhere-all-at-once-cover.jpg"
+
+  - title: "A Beautiful Day in the Neighborhood"
+    year: "2019"
+    description: "Tom Hanks embodies Mr. Rogers in this touching exploration of kindness and human connection"
+    rating: "9/10"
+    link: "https://www.imdb.com/title/tt3224458/"
+    tags: ["Drama", "Biography", "Family"]
+    cover: "/images/movies/a-beautiful-day-in-the-neighborhood.webp"
+
+  - title: "Boyhood"
+    year: "2014"
+    description: "A groundbreaking coming-of-age story filmed over 12 years with the same cast"
+    rating: "9/10"
+    link: "https://www.imdb.com/title/tt1065073"
+    tags: ["Drama", "Coming-of-age"]
+    cover: "/images/movies/boyhood-cover.webp"

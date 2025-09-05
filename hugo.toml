@@ -1,0 +1,19 @@
+baseURL = "https://pankajniroula.com/"
+languageCode = "en-us"
+title = "Pankaj Niroula" 
+
+theme = "dario"
+
+disableKinds = ["section"]
+
+[permalinks]
+  meta = "/:filename/"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[params]
+  author = "Pankaj Niroula" # the author of the site
+  description = "Thoughts, reflections, ideas and bookmarks worth sharing" # a description of your site that will be used in the meta tags
