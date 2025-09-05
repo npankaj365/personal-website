@@ -1,0 +1,3 @@
+[submodule "themes/dario"]
+	path = themes/dario
+	url = git@github.com:npankaj365/personal-website.git
